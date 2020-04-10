@@ -16,8 +16,8 @@
 title: Tobias Møller Jensen's portfolio
 email: tobias1012@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my portfolio, this is a site where i write about my programs
-  within software development.
+  Welcome to my portfolio. I plan to write blog posts about all different kinds of projects i make, and find interesting.
+  This site is not supposed to be formal and i will also include my thoughts of the projects into the posts.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
