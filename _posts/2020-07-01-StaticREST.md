@@ -12,27 +12,29 @@ Some days ago I fell over a problem in a project where the server-time was all u
 
 # The Idea
 
-Suppose we have an API in which no data is secret, do you have a reason to have a back-end to parse this?
+In a project with no secret data, there isn't the biggest uses for a backend.
+there are still a lot of reasons to have a backend, especially for proprietary software.
 
-For many projects, the answer to this question is yes, and this is a viable answer. For projects where the answer is no, this method can be used.
+There is also a problem if the data is more than a normal computer can be expected to process quickly.
+Therefore this is more of an experiment than anything else.
 
 
-
-The main idea is to have a server which servers all the data, or all data in structured sections, and thereafter let the client parse this data with some code also fetched from the server.
+The main idea is to have a server which serves all the data, or all data in structured sections, and thereafter let the client parse this data with some code also fetched from the server.
 
 
 
 ## The Advantages
 
-* Less strain on server
-* Possible to use GitHub Pages
-* Cheaper
-* Simpler
+* Less strain on server.
+* Possible to use GitHub Pages.
+* Cheaper.
+* Simpler.
 
 ## The Disadvantages
 
-* Can't have secret data
-* Extra strain on client
+* Can't have secret data.
+* Extra strain on client.
+* NOTE: This is a non-exhaustive list. For your specific project there can be more.
 
 # The PoC
 
@@ -91,7 +93,7 @@ function handleRadio(URL)
 }
 ```
 
-So this is quite simple to actually parse the data, and as the code shows the URL can be defined by whatever, this makes it somewhat useable, however for it to be a little more smart the server would hold this JS code instead of the client, and simply execute the code as a blob, this could work something like this from the clients perspective:
+It is code in this case parses trivial data. It is certainly possible to have more complicated data parsed. and the Javascript can even be fetched from a server as shown below.
 
 ```javascript
 function getCode(URI){
