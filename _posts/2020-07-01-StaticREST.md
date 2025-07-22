@@ -3,45 +3,37 @@ layout: post
 title:  "Creating a 'Static API' for fun and profit"
 date:   2020-07-1 14:15:48 +0100
 categories: server development
-published : true
+published : false
 ---
 
-Some days ago I fell over a problem in a project where the server-time was all used up, this led me to think of other possible to solutions to an API. At first I started thinking about GitHub Pages since this is a free service, the only problem with this approach is this needs to be a static site with some sort of API to parse data for the end user to see.
+Some time ago, I ran into a project where the server's processing time was maxed out. This led me to explore alternative ways of building an API. One idea that came to mind was leveraging GitHub Pages, a free and reliable service, however it only supports static content. That raised an interesting challenge: could we simulate a dynamic API with a static site?
 
 
 
 # The Idea
 
-In a project with no secret data, there isn't the biggest uses for a backend.
-there are still a lot of reasons to have a backend, especially for proprietary software.
+In many projects that don’t involve sensitive data, the need for a traditional backend can be minimal. 
+Of course, backends are still important especially when dealing with proprietary data or operations requiring heavy processing. For simple public datasets however, client-side parsing might be a viable solution.
 
-There is also a problem if the data is more than a normal computer can be expected to process quickly.
-Therefore this is more of an experiment than anything else.
-
-
-The main idea is to have a server which serves all the data, or all data in structured sections, and thereafter let the client parse this data with some code also fetched from the server.
-
+This experiment explores how we can create a "static API" that serves structured data via plain JSON, leaving the actual logic and parsing to the client.
 
 
 ## The Advantages
 
-* Less strain on server.
+* Reduced server load.
 * Possible to use GitHub Pages.
 * Cheaper.
 * Simpler.
 
 ## The Disadvantages
 
-* Can't have secret data.
+* No support for private or sensitive data.
 * Extra strain on client.
-* NOTE: This is a non-exhaustive list. For your specific project there can be more.
+* (This list is not exhaustive. Please consider your project’s specific requirements.)
 
-# The PoC
+# Proof of Concept
 
-This is a simple JavaScript-script in which we parse some data acquired from a remote server (local in this case)
-
-This PoC simply returns a JSON field according to some a value, in this case given by the radio buttons. It is however possible to create more complicated functions to parse the data. It is important to keep in mind that all data will be parsed client-side and will therefore require some CPU resources to process.
-
+Here’s a simple proof of concept: a basic JavaScript implementation that fetches and parses data from a local JSON file. In this example, data is selected via radio buttons, and the corresponding field is displayed.
 
 
 ------
@@ -93,8 +85,9 @@ function handleRadio(URL)
 }
 ```
 
-It is code in this case parses trivial data. It is certainly possible to have more complicated data parsed. and the Javascript can even be fetched from a server as shown below.
+This setup is simple, but the concept can be extended to parse much more complex data structures on the client side.
 
+If you want even more flexibility, you can dynamically load JavaScript code from a server:
 ```javascript
 function getCode(URI){
     
@@ -114,8 +107,7 @@ function getCode(URI){
 }
 ```
 
-This would allow to download a 'fresh' JavaScript source and then execute our functions from that. This would allow for some form of a static API
-
+This allows you to update your client-side logic dynamically
 
 
 # Conclusion
